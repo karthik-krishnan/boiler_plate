@@ -1,8 +1,6 @@
 # BoilerPlate
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/boiler_plate`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This project helps to quickly templatize an entire folder based on a set of configured inputs given in the form of a properties file.  Comes in handy if you have a project folder and want to quickly replicate it as a boiler plate baseline for new projects.
 
 ## Installation
 
