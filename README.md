@@ -9,8 +9,8 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-	source 'https://rubygems.org'
-	gem 'boiler_plate', :git => 'https://github.com/karthik-krishnan/boiler_plate'
+source 'https://rubygems.org'
+gem 'boiler_plate', :git => 'https://github.com/karthik-krishnan/boiler_plate'
 ```
 
 And then execute:
