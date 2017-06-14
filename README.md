@@ -26,11 +26,13 @@ Or install it yourself as:
 ```ruby
 	attrs = {:foo => 'bar'}
 	context = BoilerPlate::Context.new(attrs)
+	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
 ```
 
 ### Attributes from Java Properties
 ```ruby
 	context = BoilerPlate::Context.new(JavaProperties.load("some_properties_file"))
+	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
 ```
 
 ### Attributes with additional custom replacement
@@ -54,6 +56,9 @@ Or install it yourself as:
 		end	
 
 	end
+	context = MyContext.new
+	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
+
 ```
 
 ## Development
