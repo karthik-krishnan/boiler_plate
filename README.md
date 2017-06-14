@@ -25,6 +25,9 @@ Or install it yourself as:
 
 ### Attributes from a simple map
 ```ruby
+	require 'boiler_plate'
+	include BoilerPlate
+
 	attrs = {:foo => 'bar'}
 	context = BoilerPlate::Context.new(attrs)
 	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
@@ -32,15 +35,18 @@ Or install it yourself as:
 
 ### Attributes from Java Properties
 ```ruby
+	require 'boiler_plate'
+	include BoilerPlate
+
 	context = BoilerPlate::Context.new(JavaProperties.load("some_properties_file"))
 	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
 ```
 
 ### Attributes with additional custom replacement
 ```ruby
-	#My Custom Class
 	require 'boiler_plate'
 
+	#My Custom Class
 	class MyContext
 		include BoilerPlate	
 
