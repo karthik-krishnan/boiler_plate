@@ -22,7 +22,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Attributes from a simple map
+```ruby
+	attrs = {:foo => 'bar'}
+	context = BoilerPlate::Context.new(attrs)
+```
+
+### Attributes from Java Properties
+```ruby
+	context = BoilerPlate::Context.new(JavaProperties.load("some_properties_file"))
+```
+
+### Attributes with additional custom replacement
+```ruby
+	#My Custom Class
+	require 'boiler_plate'
+
+	class MyContext
+		include BoilerPlate	
+
+		def initialize
+			load_context JavaProperties.load("some_properties_file")
+		end
+
+		def some_attribute
+			"my custom value"
+		end
+
+		def some_new_attribute
+			"some value"
+		end	
+
+	end
+```
 
 ## Development
 
