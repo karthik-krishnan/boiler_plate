@@ -59,7 +59,7 @@ module BoilerPlate
 			template_files.each {|t|
 				base_name = File.basename(t, ".template")
 				print "Processing #{base_name}..."
-				renderer = ERB.new(File.read(t))
+				renderer = ERB.new(File.read(t), nil, '<>')
 				output_file = File.join(File.dirname(t), base_name)
 				File.open(output_file, "w"){|f|
 					f.write(renderer.result(context.get_binding))
