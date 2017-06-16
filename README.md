@@ -21,6 +21,13 @@ Or install it yourself as:
 
 ## Usage
 
+### Making a file as template
+ 1. Replace any place in a file with ERB syntax <%= <i>variable_name</i> %>
+ 2. Rename the file by adding a suffix <i>'.template'</i>
+
+### What if I want to rename a file or folder with a template variable?
+ 1. Enclose the variable_name part of the file/folder name within <i>[]</i>, eg: some_[variable_name]
+
 ### Attributes from a simple map
 ```ruby
 	require 'boiler_plate'
@@ -46,7 +53,7 @@ Or install it yourself as:
 
 	#My Custom Class
 	class MyContext
-		include BoilerPlate	
+		include BoilerPlate
 
 		def initialize
 			load_context JavaProperties.load("some_properties_file")
@@ -58,7 +65,7 @@ Or install it yourself as:
 
 		def some_new_attribute
 			"some value"
-		end	
+		end
 
 	end
 	context = MyContext.new
@@ -80,4 +87,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
