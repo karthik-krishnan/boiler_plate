@@ -26,6 +26,34 @@ module BoilerPlate
 		end
 
 		def templatize
+			templatize_folder_names
+			templatize_file_names
+			templatize_contents
+		end
+
+		def rename_folder_file_entries(entries)
+			entries.each {|entry|
+				print "Renaming #{File.basename(entry)}..."
+				templated_entry = entry.gsub("[", "<%= ").gsub("]", " %>")
+				replaced_entry = ERB.new(templated_entry).result(context.get_binding)
+				FileUtils.mv(entry, replaced_entry)
+				puts "done"
+			}
+		end
+
+		def templatize_folder_names
+			folders = Dir.glob("#{destination_folder}/**/*[*]*").select{|f| File.directory? f}
+			puts "Total folders to be renamed = #{folders.count}"
+			rename_folder_file_entries(folders)
+		end
+
+		def templatize_file_names
+			files = Dir.glob("#{destination_folder}/**/*[*]*").select{|f| File.file? f}
+			puts "Total files to be renamed = #{files.count}"
+			rename_folder_file_entries(files)
+		end
+
+		def templatize_contents
 			template_files = Dir.glob("#{destination_folder}/**/*.template")
 			puts "Total templates to be processed = #{template_files.count}"
 			template_files.each {|t|
