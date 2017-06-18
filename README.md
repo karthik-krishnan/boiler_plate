@@ -30,47 +30,46 @@ Or install it yourself as:
 
 ### Attributes from a simple map
 ```ruby
-	require 'boiler_plate'
-	include BoilerPlate
+require 'boiler_plate'
+include BoilerPlate
 
-	attrs = {:foo => 'bar'}
-	context = BoilerPlate::Context.new(attrs)
-	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
+attrs = {:foo => 'bar'}
+context = BoilerPlate::Context.new(attrs)
+BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
 ```
 
 ### Attributes from Java Properties
 ```ruby
-	require 'boiler_plate'
-	include BoilerPlate
+require 'boiler_plate'
+include BoilerPlate
 
-	context = BoilerPlate::Context.new(JavaProperties.load("some_properties_file"))
-	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
+context = BoilerPlate::Context.new(JavaProperties.load("some_properties_file"))
+BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
 ```
 
 ### Attributes with additional custom replacement
 ```ruby
-	require 'boiler_plate'
+require 'boiler_plate'
 
-	#My Custom Class
-	class MyContext
-		include BoilerPlate
+#My Custom Class
+class MyContext
+	include BoilerPlate
 
-		def initialize
-			load_context JavaProperties.load("some_properties_file")
-		end
-
-		def some_attribute
-			"my custom value"
-		end
-
-		def some_new_attribute
-			"some value"
-		end
-
+	def initialize
+		load_context JavaProperties.load("some_properties_file")
 	end
-	context = MyContext.new
-	BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
 
+	def some_attribute
+		"my custom value"
+	end
+
+	def some_new_attribute
+		"some value"
+	end
+
+end
+context = MyContext.new
+BoilerPlate::Runner.new(context, "./template_folder", "./new_folder").run
 ```
 
 ## Development
