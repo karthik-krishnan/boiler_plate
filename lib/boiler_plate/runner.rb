@@ -42,19 +42,19 @@ module BoilerPlate
 		end
 
 		def templatize_folder_names
-			folders = Dir.glob("#{destination_folder}/**/*\\[*\\]*").select{|f| File.directory? f}
+			folders = Dir.glob("#{destination_folder}/**/{*,.*}\\[*\\]*").select{|f| File.directory? f}
 			puts "Total folders to be renamed = #{folders.count}"
 			rename_folder_file_entries(folders)
 		end
 
 		def templatize_file_names
-			files = Dir.glob("#{destination_folder}/**/*\\[*\\]*").select{|f| File.file? f}
+			files = Dir.glob("#{destination_folder}/**/{*,.*}\\[*\\]*").select{|f| File.file? f}
 			puts "Total files to be renamed = #{files.count}"
 			rename_folder_file_entries(files)
 		end
 
 		def templatize_contents
-			template_files = Dir.glob("#{destination_folder}/**/*.template")
+			template_files = Dir.glob("#{destination_folder}/**/{*,.*}.template")
 			puts "Total templates to be processed = #{template_files.count}"
 			template_files.each {|t|
 				base_name = File.basename(t, ".template")
